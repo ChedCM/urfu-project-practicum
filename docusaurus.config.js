@@ -15,14 +15,6 @@ const config = {
     locales: ['ru'],
   },
   
-  // Настройки деплоя
-  deploymentConfig: {
-    github: {
-      username: 'ChedCM',
-      projectName: 'urfu-project-practicum',
-    },
-  },
-  
   presets: [
     [
       'classic',
