@@ -1,10 +1,10 @@
+require('./patch-webpack.js');
 // @ts-check
 const config = {
   title: 'Безопасность аккаунтов',
   tagline: 'Практические рекомендации по безопасности учётных записей в социальных сетях',
   favicon: 'img/favicon.ico',
-  
-  // ⚠️ Ваши данные для GitHub Pages:
+
   url: 'https://ChedCM.github.io',
   baseUrl: '/urfu-project-practicum/',
   
