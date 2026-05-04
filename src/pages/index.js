@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import '../css/custom.css';
 
 function HomepageHeader() {
@@ -29,10 +30,12 @@ function HomepageHeader() {
   );
 }
 
-function PlatformCard({ platform, icon, title, description, link, color }) {
+function PlatformCard({ platform, logoSrc, title, description, link, color, gradient }) {
   return (
     <div className={`platform-card ${platform}`}>
-      <div className="platform-icon">{icon}</div>
+      <div className="platform-icon" style={{ background: gradient }}>
+        <img src={logoSrc} alt={title} style={{ width: '50px', height: '50px', objectFit: 'contain' }} />
+      </div>
       <h3>{title}</h3>
       <p>{description}</p>
       <Link className="btn btn-primary" to={link}>
@@ -43,28 +46,38 @@ function PlatformCard({ platform, icon, title, description, link, color }) {
 }
 
 function HomepagePlatforms() {
+  const telegramLogo = useBaseUrl('/img/telegram_logo.png');
+  const vkLogo = useBaseUrl('/img/VK_logo.png');
+  const maxLogo = useBaseUrl('/img/MAX_logo.png');
+  
   return (
     <section className="platform-cards">
       <PlatformCard
         platform="telegram"
-        icon="✈️"
+        logoSrc={telegramLogo}
         title="Telegram"
         description="Настройка двухфакторной аутентификации, приватности и скрытых чатов"
         link="/platforms/tg-basic"
+        color="#0088cc"
+        gradient="linear-gradient(135deg, #0088cc 0%, #00a8e8 100%)"
       />
       <PlatformCard
         platform="vk"
-        icon="📱"
+        logoSrc={vkLogo}
         title="ВКонтакте"
         description="Защита аккаунта, настройка приватности и проверка активных сессий"
         link="/platforms/vk-login"
+        color="#4a76a8"
+        gradient="linear-gradient(135deg, #4a76a8 0%, #5b8fc7 100%)"
       />
       <PlatformCard
         platform="max"
-        icon="🔒"
+        logoSrc={maxLogo}
         title="MAX"
         description="Двухфакторная аутентификация и безопасный режим в российском мессенджере"
         link="/platforms/max-2fa"
+        color="#8e44ad"
+        gradient="linear-gradient(135deg, #8e44ad 0%, #9b59b6 100%)"
       />
     </section>
   );
